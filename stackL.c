@@ -1,4 +1,5 @@
-#include  <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "stackL.h"
 
 int isStackEmpty() {
@@ -8,7 +9,6 @@ int isStackEmpty() {
 
 void push(element item) {
 	stackNode* temp = (stackNode*)malloc(sizeof(stackNode));
-
 	temp->data = item;
 	temp->link = top;
 	top = temp;
@@ -19,10 +19,10 @@ element pop() {
 	stackNode* temp = top;
 
 	if (isStackEmpty()) {
-		printf("\n\n Stack is empty !\n");
+		printf("\n\n Stack is empty ! \n");
 		return 0;
 	}
-	else {					
+	else {
 		item = temp->data;
 		top = temp->link;
 		free(temp);
@@ -32,17 +32,18 @@ element pop() {
 
 element peek() {
 	if (isStackEmpty()) {
-		printf("\n\n Stack is empty !\n");
+		printf("\n\n Stack is empty ! \n");
 		return 0;
 	}
-	else {
+	else
+	{
 		return(top->data);
 	}
 }
 
 void printStack() {
 	stackNode* p = top;
-	printf("\n STACK [ ");
+	printf("\n STACK [");
 	while (p) {
 		printf("%d ", p->data);
 		p = p->link;
